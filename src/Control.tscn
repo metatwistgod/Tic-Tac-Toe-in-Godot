@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Assets/CHUNKY.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Assets/CHUNKY.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 33
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hover"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Press space:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 335.5 ), Vector2( 0, 369.5 ), Vector2( 0, 335.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Press space:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Press space:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 600, 69 ), Vector2( 600, 69 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 600, 600 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.356863 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 600, 600 )
+
+[node name="win" type="Label" parent="."]
+anchor_top = 0.44
+anchor_right = 1.0
+anchor_bottom = 0.44
+margin_top = -28.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "x/o win"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Game Over" type="Label" parent="."]
+anchor_top = 0.198333
+anchor_right = 1.0
+anchor_bottom = 0.301667
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="Press space" type="Label" parent="."]
+anchor_top = 0.673333
+anchor_right = 1.0
+anchor_bottom = 0.673333
+margin_top = -54.9
+margin_bottom = 14.1
+rect_min_size = Vector2( 600, 69 )
+rect_pivot_offset = Vector2( 300, 34 )
+custom_fonts/font = SubResource( 3 )
+text = "press space
+to restrat"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Hover"
+anims/Hover = SubResource( 2 )

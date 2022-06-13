@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="tic tac to"
+config/description="Enter an interesting project description here!"
+run/main_scene="res://src/Main.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=600
+window/size/resizable=false
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[global]
+
+mouse=false
